@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+        
+<struts>
+	<!-- 是否使用动态方法拦截器 -->  
+	<!-- <constant name="struts.enable.DynamicMerthodInvocation" value="false"/> --> 
+	 
+	<constant name="struts.devMode" value="true"/>
+	<!-- 下面这一句，使得 applicationContext.xml中的bean创建实例对象 生效-->
+	<!-- 需要导入一个struts-spring-plugin.jar -->
+	<constant name="struts.objectFactory" value="spring"/> 
+	
+	
+	<!-- 默认包 -->
+	<package name="default" namespace="/" extends="struts-default">	
+		
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error"/>
+		</global-exception-mappings>
+	
+		<!-- 网页显示 -->
+		<action name="book" class="bookAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>
